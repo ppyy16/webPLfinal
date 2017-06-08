@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Bootstrap stuff -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fanhub</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script> </script>
+
+    <style type="text/css"> 
+
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+    body{
+        padding-top:60px;
+    }
+
+
+    #navigation {
+        padding-bottom: 60px;
+    }
+
+
+    .linear-gradient {
+        background: linear-gradient(#b3daff, transparent); 
+        background-repeat: no-repeat;
+
+    }
+
+
+    .navbar-custom {
+        background-color:#000000;
+        color:#ffffff;
+        border-radius:0;
+    }
+
+
+
+
+
+</style>
+
+<div id="navigation">
+    <nav id="navbaritself" class="navbar navbar-custom">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Fanhub</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="addartist.php">Add Artist</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="logout.php">Logout</a></li>
+    </ul>
+    <form class="navbar-form navbar-right">
+        <input type="text" id="searchbox" class="form-control" placeholder="Search...">
+        <input type="submit" id="searchsubmit">
+    </form>
+</div>
+</div>
+</nav>
+</div>
+
+<script>
+$(function() {
+    $( "#skills" ).autocomplete({
+        source: 'search.php'
+    });
+});
+</script>
+
+</head>
+
+<body class="linear-gradient">
+
+
+
+<div class="ui-widget">
+    <label for="skills">Skills: </label>
+    <input id="skills">
+</div>
+
+
+  
+
+
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="javascriptneeds.js"></script>
+<!-- my own script -->
+<!-- <script src="tablehw4.js"></script>
+--></body>
+</html>

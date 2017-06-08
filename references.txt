@@ -1,0 +1,98 @@
+uvaid: ps4ww
+
+https://www.liquidweb.com/kb/how-to-list-and-attach-to-docker-containers/
+docker commands help
+
+https://docs.docker.com/engine/reference/commandline/start/#examples
+docker commands help 2
+
+https://github.com/moby/moby/issues/6476
+container problems
+
+https://www.piliapp.com/mysql-syntax-check/
+sql syntax checker
+
+https://www.w3schools.com/sql/sql_create_db.asp
+how to create a db
+
+https://www.w3schools.com/bootstrap/tryit.asp?filename=trybs_ref_img-circle&stacked=h
+how to make pics circles
+
+http://getbootstrap.com/getting-started/#download
+generally anything to do with bootstrap
+
+https://www.w3.org/Style/Examples/007/center.en.html
+how to center things
+
+https://stackoverflow.com/questions/30079188/image-under-nav-bar-html-css
+image was under navbar
+
+https://www.w3schools.com/cssref/pr_background-repeat.asp
+how tostop bg from repeating
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/linear-gradient
+how to make a gradient bg for prettiness
+
+https://stackoverflow.com/questions/8703507/how-can-i-get-a-session-id-or-username-in-php
+session id help
+
+http://php.net/manual/en/function.session-start.php
+how to start a session
+
+https://stackoverflow.com/questions/8703507/how-can-i-get-a-session-id-or-username-in-php
+how to specify a session id
+
+https://stackoverflow.com/questions/30588383/php-pdo-get-information-by-username
+how to use session id to get info from username
+
+https://stackoverflow.com/questions/1960240/jquery-ajax-submit-form
+jquery ajax confusion
+
+https://stackoverflow.com/questions/14436800/two-divs-next-to-each-other-that-then-stack-with-responsive-change
+how to put two divs next to each other
+
+https://codepen.io/crashy/pen/JoKMgG
+cool login background
+
+https://stackoverflow.com/questions/8097744/how-do-i-center-this-form-in-css
+how to center something that wouldn't center
+
+https://stackoverflow.com/questions/18655706/pdo-with-insert-into-through-prepared-statements
+pdo problems
+
+https://www.youtube.com/watch?v=Yb3c-HljFro
+how to make a search bar work
+
+http://php.net/manual/en/pdostatement.debugdumpparams.php
+how to debug prams with prepared statements
+
+https://stackoverflow.com/questions/11184693/pdo-returning-execute-results-to-an-array
+how to return results with pdo
+
+https://www.w3schools.com/sql/sql_insert.asp
+forgot how to insert sql
+
+https://www.w3schools.com/php/php_mysql_prepared_statements.asp
+prepared statements suck
+
+https://www.w3schools.com/js/js_popup.asp
+how to get popups in js
+
+
+https://daveismyname.blog/autocomplete-with-php-mysql-and-jquery-ui
+
+https://stackoverflow.com/questions/5387619/how-to-import-a-single-table-in-to-mysql-database-using-command-line
+
+https://dev.mysql.com/doc/refman/5.7/en/getting-information.html
+
+http://api.jqueryui.com/autocomplete/#event-select
+
+http://php.net/manual/en/reserved.variables.get.php
+
+https://stackoverflow.com/questions/21385892/how-to-use-source-function-and-ajax-in-jquery-ui-autocomplete
+
+http://php.net/manual/en/function.array-diff-key.php
+
+https://clicknathan.com/web-design/dynamically-update-username-twitter-widget/
+
+http://api.jqueryui.com/autocomplete/#event-select

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Bootstrap stuff -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Fanhub</title>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<script> $('.carousel').carousel(); </script>
+
+
+	<style type="text/css">
+
+
+		html {
+			position: relative;
+			min-height: 100%;
+		}
+		.carousel-fade .carousel-inner .item {
+			opacity: 0;
+			transition-property: opacity;
+		}
+		.carousel-fade .carousel-inner .active {
+			opacity: 1;
+		}
+		.carousel-fade .carousel-inner .active.left,
+		.carousel-fade .carousel-inner .active.right {
+			left: 0;
+			opacity: 0;
+			z-index: 1;
+		}
+		.carousel-fade .carousel-inner .next.left,
+		.carousel-fade .carousel-inner .prev.right {
+			opacity: 1;
+		}
+		.carousel-fade .carousel-control {
+			z-index: 2;
+		}
+		@media all and (transform-3d),
+		(-webkit-transform-3d) {
+			.carousel-fade .carousel-inner > .item.next,
+			.carousel-fade .carousel-inner > .item.active.right {
+				opacity: 0;
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.carousel-fade .carousel-inner > .item.prev,
+			.carousel-fade .carousel-inner > .item.active.left {
+				opacity: 0;
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+			.carousel-fade .carousel-inner > .item.next.left,
+			.carousel-fade .carousel-inner > .item.prev.right,
+			.carousel-fade .carousel-inner > .item.active {
+				opacity: 1;
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+		}
+		.item:nth-child(1) {
+			background: url(https://ununsplash.imgix.net/photo-1417021423914-070979c8eb34?q=75&fm=jpg&s=55746bd56e02a131b1e48c12196ea866) no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		.item:nth-child(2) {
+			background: url(https://ununsplash.imgix.net/reserve/oY3ayprWQlewtG7N4OXl_DSC_5225-2.jpg?q=75&fm=jpg&s=85ab821f3fa535036a68155aab571bad) no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		.item:nth-child(3) {
+			background: url(https://unsplash.imgix.net/photo-1414073875831-b47709631146?q=75&fm=jpg&s=731b6d5150eea8bafa63ae8194e72ebd) no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+		.carousel {
+			z-index: -99;
+		}
+		.carousel .item {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+		}
+		.title {
+			text-align: center;
+			margin-top: 20px;
+			padding: 10px;
+			text-shadow: 2px 2px #000;
+			color: #FFF;
+		}
+
+		#form-wrapper {
+			margin-left: 25%;
+			margin-right:25%;
+			width: 50%;
+		}
+
+		#fullform {
+			display: inline-block;
+			text-align: center;
+
+		}
+
+
+
+
+
+
+
+
+	</style>
+
+
+
+
+</head>
+
+<body>
+
+<!-- the pretty background slide show -->
+	<div class="carousel slide carousel-fade" data-ride="carousel">
+
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active">
+			</div>
+			<div class="item">
+			</div>
+			<div class="item">
+			</div>
+		</div>
+	</div>
+
+	<!-- Remeber to put all the content you want on top of the slider below the slider code -->
+
+	<div class="title">
+		<h1>Welcome to Fanhub</h1>
+		<h2> <em> Where Fans Come Together </em><h2>
+		</div>
+
+
+<!-- Login form -->
+		<div id="form-wrapper">
+			<form id= "fullform" action="projcontroller.php" method="POST">
+				<label for="username">
+					Username
+				</label>
+				<input type="text" id="username" name="username" />
+
+				<label for="password">
+					Password
+				</label>
+				<input type="password" id="password" name="password" />
+				<br>
+				<input type="submit" class="btn btn-default" name="cmd" value="login" />
+				<!-- @TODO: Register button stuff-->				
+				<!-- <a href="register.html" class="btn btn-default">Register</a>-->        
+			</form>
+
+		</div>
+
+
+
+
+
+
+
+
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<!-- my own script -->
+	</body>
+	</html>
