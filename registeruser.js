@@ -4,7 +4,7 @@ $("#submitreg").on("click", function(e) {
   //prevent the default action
   e.preventDefault();
 
- 
+//error check inputs 
 var name = $("#userfirstname").val();
 var last = $("#userlastname").val();
 var pass = $("#userpassword").val();
@@ -15,26 +15,26 @@ var email = $("#useremail").val();
 
 
 
- if(name === ""){
+if(name === ""){
   alert("You have an empty name");
   return;
 }
 
 
- if(last === ""){
+if(last === ""){
   alert("You have an empty lastname");
   return;
 }
 
 
 
- if(pass === ""){
+if(pass === ""){
   alert("You have an empty password");
   return;
 }
 
 
- if(email === ""){
+if(email === ""){
   alert("You have an empty email");
   return;
 }
@@ -44,32 +44,32 @@ var email = $("#useremail").val();
 
 
 //setting the data
-    var data = {
-      userfirstname: $('#userfirstname').val(),
-      userlastname: $('#userlastname').val(),
-      userpassword: $('#userpassword').val(),
-      useremail: $('#useremail').val(),
-      userbirthday: $('#userbirthday').val(),
+var data = {
+  userfirstname: $('#userfirstname').val(),
+  userlastname: $('#userlastname').val(),
+  userpassword: $('#userpassword').val(),
+  useremail: $('#useremail').val(),
+  userbirthday: $('#userbirthday').val(),
 
 
-      submitregform: "yes"
-    };
+  submitregform: "yes"
+};
 
 //using the data and sending it through a post with promise handling
-    $.ajax({
-         type: 'POST',
-         url: "projcontroller.php",
-         data: data, 
-         success: function(response) {
-            alert("Registeration complete");
+$.ajax({
+ type: 'POST',
+ url: "projcontroller.php",
+ data: data, 
+ success: function(response) {
+  alert("Registeration complete");
             //console.log(response);
-             
-         },
-        error: function() {
+            
+          },
+          error: function() {
             alert("There was an error submitting comment");
-        }
-     });
-           
+          }
+        });
+
 
 });
 

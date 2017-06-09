@@ -27,12 +27,14 @@ class projectview {
 	}
 
 
-	
+//for search artist	
 	public function searchartist($artiststagename) {
 		$result = $this->model->searchartist($artiststagename);
 		echo json_encode($result);
 	}
 
+
+//for filloutartist artistpage
 	public function filloutartist($artiststagename){
 		$result = $this->model->filloutartist($artiststagename);
 		//result is an array and we want the shit out of the array
@@ -48,6 +50,9 @@ class projectview {
 
 	}
 
+
+
+	//for autosearch
 	public function autosearch($autosearch){
 		$result = $this->model->autosearch($autosearch);
 
@@ -56,7 +61,7 @@ class projectview {
 	}
 
 
-
+	//for hitting the fave button on artists
 	public function addartisttofaves($addtofave, $useremail){
 		$result = $this->model->addartisttofaves($addtofave, $useremail);
 
@@ -65,7 +70,7 @@ class projectview {
 	}
 
 
-///////////////////////////////////
+//for displaying fave list
 	public function favelist($useremail){
 		$result = $this->model->favelist($useremail);
 
@@ -74,9 +79,8 @@ class projectview {
 	}
 
 
-//////////
-	
-public function reguser($userfirstname, $userlastname, $userpassword ,$useremail, $userbirthday){
+//for registering users
+	public function reguser($userfirstname, $userlastname, $userpassword ,$useremail, $userbirthday){
 		$result = $this->model->reguser($userfirstname, $userlastname, $userpassword ,$useremail, $userbirthday);
 
 

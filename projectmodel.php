@@ -332,7 +332,7 @@ return;
 
 
 
-///////////////////////
+//fave list biz log
 
 public function favelist($useremail){
     $return_arr = array();
@@ -368,40 +368,37 @@ public function favelist($useremail){
 
 
 
-/////////////////////////register
-
-
-
+//register biz log
 public function reguser($userfirstname, $userlastname, $userpassword ,$useremail, $userbirthday)
 {
-     $prepared = $this->connection->prepare(
-        "INSERT INTO users (firstname, lastname, password, birthday, email) VALUES (:firstname, :lastname, sha1(:password), :birthday, :email);"
-        );
+ $prepared = $this->connection->prepare(
+    "INSERT INTO users (firstname, lastname, password, birthday, email) VALUES (:firstname, :lastname, sha1(:password), :birthday, :email);"
+    );
 
 
-     $prepared->execute(array(
-        ":firstname" => $userfirstname,
-        ":lastname" => $userlastname,
-        ":password" => $userpassword,
-        ":birthday" => $userbirthday,
+ $prepared->execute(array(
+    ":firstname" => $userfirstname,
+    ":lastname" => $userlastname,
+    ":password" => $userpassword,
+    ":birthday" => $userbirthday,
 
-        ":email" => $useremail
-      
-        ));
+    ":email" => $useremail
 
-
+    ));
 
 
-     if(!$prepared->execute(array(
-        ":firstname" => $userfirstname,
-        ":lastname" => $userlastname,
-        ":password" => $userpassword,
-        ":birthday" => $userbirthday,
 
-        ":email" => $useremail
-        ))) {
+
+ if(!$prepared->execute(array(
+    ":firstname" => $userfirstname,
+    ":lastname" => $userlastname,
+    ":password" => $userpassword,
+    ":birthday" => $userbirthday,
+
+    ":email" => $useremail
+    ))) {
             // FAILING TO EXECTURE THE QUERY
-        throw new Exception("FATAL ERROR SEND IN BACKUPS! (query)");
+    throw new Exception("FATAL ERROR SEND IN BACKUPS! (query)");
 }
 
 if($prepared->rowCount() == 0 ) {
@@ -413,17 +410,7 @@ if($prepared->rowCount() == 0 ) {
 
 return;
 
-
 }
-
-
-
-
-
-
-
-
-
 
 
 

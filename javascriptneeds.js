@@ -32,7 +32,11 @@
 // });
 
 
+
+
+
 //redirect send get request and then grab it from the url
+//autocomplete onclick
 
 $(function() {
 
@@ -56,8 +60,7 @@ $(function() {
 });
 
 
-//favorites link
-
+//favorites link onclick
 $("#favelink").on("click", function(e) {
    e.preventDefault();
    //gets the stagename
@@ -105,7 +108,7 @@ $("#favelink").on("click", function(e) {
 
 
 
-///////////////////////
+//onclick function for favelist
 
 $("#getartists").on("click", function(e) {
    e.preventDefault();

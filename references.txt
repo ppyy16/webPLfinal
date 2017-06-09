@@ -80,39 +80,60 @@ how to get popups in js
 
 
 https://daveismyname.blog/autocomplete-with-php-mysql-and-jquery-ui
+autocomplete source code
 
 https://stackoverflow.com/questions/5387619/how-to-import-a-single-table-in-to-mysql-database-using-command-line
+sql importing table help
 
 https://dev.mysql.com/doc/refman/5.7/en/getting-information.html
+getting information about a sql table
 
 http://api.jqueryui.com/autocomplete/#event-select
+//autocomplete event selection for suggestions to new page
 
 http://php.net/manual/en/reserved.variables.get.php
+how to use get properly
 
 https://stackoverflow.com/questions/21385892/how-to-use-source-function-and-ajax-in-jquery-ui-autocomplete
+autocomplete troubleshooting
 
 http://php.net/manual/en/function.array-diff-key.php
+how to get an array position in php
 
 https://clicknathan.com/web-design/dynamically-update-username-twitter-widget/
+how to dynamically get a twitter widget
 
-http://api.jqueryui.com/autocomplete/#event-select
+https://twitter.com/
+twitter widget
 
 https://www.w3schools.com/html/html_links.asp
+html links help
 
 https://stackoverflow.com/questions/4383914/how-to-get-single-value-from-php-array
+how to get a single value from php array
 
 https://stackoverflow.com/questions/19488364/how-to-properly-use-while-loop-in-pdo-fetchall
+fetchall confusion with PDO
 
 https://stackoverflow.com/questions/3771039/what-does-1-mean-at-the-end-of-a-php-print-r-statement
+print r was printing 1 and I didnt know that was a thing
 
 
 http://az616578.vo.msecnd.net/files/2016/05/09/635983505329496433385654456_concert-audience.jpg
+bg1 pic
 
 
 https://www.tutorialspoint.com/javascript/javascript_form_validations.htm
+input validation 3
 
 https://www.w3schools.com/js/js_validation.asp
+input validation 2
 
 http://www.tutorialrepublic.com/faq/how-to-align-a-div-horizontally-center-using-css.php
+centering things again
 
 http://kpopconcerts.com/wp-content/uploads/2013/11/DSC_5026.jpg
+bg2 pic
+
+https://wondercrizel.files.wordpress.com/2015/04/20150412_215019.jpg
+bg3 pic

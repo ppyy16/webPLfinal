@@ -12,7 +12,7 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-
+  <!-- getting my var from the url and sending it to controller later -->
   <?php
   session_start();
   $_SESSION['loggedin'] = true;
@@ -74,47 +74,46 @@
 
 
   .wrapper { 
-/*  border : 2px solid #000; 
-*/  overflow:hidden;
-padding: 25px;
-}
+    overflow:hidden;
+    padding: 25px;
+  }
 
-.wrapper div {
- min-height: 200px;
- padding: 10px;
-}
-#myartists {
+  .wrapper div {
+   min-height: 200px;
+   padding: 10px;
+ }
+ #myartists {
   background-color: white;
   float:left; 
   margin-right:20px;
   width:50%;
-border:2px dashed #ccc;}
-#myfeed { 
-  background-color: white;
-  overflow:hidden;
-  margin:10px;
-  border:2px dashed #ccc;
-  min-height:50px;
-}
+  border:2px dashed #ccc;}
+  #myfeed { 
+    background-color: white;
+    overflow:hidden;
+    margin:10px;
+    border:2px dashed #ccc;
+    min-height:50px;
+  }
 
-.feedclass {
+  .feedclass {
 
-  background-color: white;
-  overflow:hidden;
-  margin:10px;
-  border:2px dashed #ccc;
-  min-height:50px;
+    background-color: white;
+    overflow:hidden;
+    margin:10px;
+    border:2px dashed #ccc;
+    min-height:50px;
 
-}
+  }
 
-@media screen and (max-width: 400px) {
- #myartists { 
-  float: none;
-  margin-right:0;
-  width:auto;
-  border:0;
-  border-bottom:2px solid #000;    
-}
+  @media screen and (max-width: 400px) {
+   #myartists { 
+    float: none;
+    margin-right:0;
+    width:auto;
+    border:0;
+    border-bottom:2px solid #000;    
+  }
 }
 
 #loggedinas:hover {background-color: transparent;
@@ -135,7 +134,7 @@ border:2px dashed #ccc;}
 
 
 </style>
-
+<!-- navigation -->
 <div id="navigation">
   <nav id="navbaritself" class="navbar navbar-custom">
     <div class="container-fluid">
@@ -152,7 +151,6 @@ border:2px dashed #ccc;}
         <ul class="nav navbar-nav navbar-right">
           <li><a href="addartist.php">Add Artist</a></li>
           <li><a id= "loggedinas" href="#"><?php
-//session_start();
    //Read your session (if it is set)
            if (isset($_SESSION['username'])){
             echo $_SESSION['username'];
@@ -174,6 +172,7 @@ border:2px dashed #ccc;}
 
 </head>
 
+<!-- artist favorite link handling -->
 <body id="linear-gradient" class="artistpage">
 
 
@@ -185,7 +184,7 @@ border:2px dashed #ccc;}
 
 
 
-
+  <!-- customized welcome header handling -->
 
   <h1 id="welcomeheader"><?php if (isset($_SESSION['artisturlname'])){
     echo $_SESSION['artisturlname'];
@@ -218,35 +217,35 @@ border:2px dashed #ccc;}
 </div>
 
 
-
+<!-- artist twitter timeline -->
 <div class="wrapper">
 
   <div id="myartists">
 
     <a class="twitter-timeline"  href="https://twitter.com/hashtag/ladygaga" data-widget-id="872943995458125825" data-screen-name="<?php
    //Read your session (if it is set)
-  if (isset($_SESSION['twitter2'])){
-    echo $_SESSION['twitter2'];
-  }
-  else {
-    echo "Stagename not set";
-  }
-  ?>"><?php
+    if (isset($_SESSION['twitter2'])){
+      echo $_SESSION['twitter2'];
+    }
+    else {
+      echo "Stagename not set";
+    }
+    ?>"><?php
    //Read your session (if it is set)
-  if (isset($_SESSION['twitter2'])){
-    echo $_SESSION['twitter2'];
-  }
-  else {
-    echo "Stagename not set";
-  }
-  ?> Tweets</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    if (isset($_SESSION['twitter2'])){
+      echo $_SESSION['twitter2'];
+    }
+    else {
+      echo "Stagename not set";
+    }
+    ?> Tweets</a>
+    <!--   dynamic twitter -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 
   </div>
 
-
-
+  <!-- table setup for information -->
   <div id="myfeed" class="feedclass">
     <table class="table" id="matable">
       <thead class="thead-inverse">
@@ -314,9 +313,6 @@ border:2px dashed #ccc;}
   </div>
 
 </div>
-
-<!-- embed dynamically made twitter out of hashtag using artist stage name
--->
 
 
 

@@ -4,8 +4,7 @@ $("#submitartist").on("click", function(e) {
   //prevent the default action
   e.preventDefault();
 
-//cleaning the inputs
-
+//check inputs
 var stage = $("#artistnamelabel").val();
 var name = $("#artistfullnamelabel").val();
 var last = $("#artistfulllastnamelabel").val();
@@ -16,28 +15,28 @@ var twitter = $("#artisttwitter").val();
 
 
 
- if(stage === ""){
+if(stage === ""){
   alert("You have an empty stagename");
   return;
 }
- if(name === ""){
+if(name === ""){
   alert("You have an empty first name");
   return;
 }
 
- if(last === ""){
+if(last === ""){
   alert("You have an empty last name");
   return;
 }
 
- if(twitter === ""){
+if(twitter === ""){
   alert("You have an empty twitter");
   return;
 }
 
 
 
- if(desc === ""){
+if(desc === ""){
   alert("You have an empty description");
   return;
 }
@@ -47,33 +46,33 @@ var twitter = $("#artisttwitter").val();
 
 
 //setting the data
-    var data = {
-      artistnamelabel: $('#artistnamelabel').val(),
-      artistfullnamelabel: $('#artistfullnamelabel').val(),
-      artistbirthday: $('#artistbirthday').val(),
-      artistdesc: $('#artistdesc').val(),
-      artistfulllastnamelabel: $('#artistfulllastnamelabel').val(),
-      artisttwitter: $('#artisttwitter').val(),
+var data = {
+  artistnamelabel: $('#artistnamelabel').val(),
+  artistfullnamelabel: $('#artistfullnamelabel').val(),
+  artistbirthday: $('#artistbirthday').val(),
+  artistdesc: $('#artistdesc').val(),
+  artistfulllastnamelabel: $('#artistfulllastnamelabel').val(),
+  artisttwitter: $('#artisttwitter').val(),
 
 
-      submitartistform: "submit"
-    };
+  submitartistform: "submit"
+};
 
 //using the data and sending it through a post with promise handling
-    $.ajax({
-         type: 'POST',
-         url: "projcontroller.php",
-         data: data, 
-         success: function(response) {
-            alert("Artist Submitted");
+$.ajax({
+ type: 'POST',
+ url: "projcontroller.php",
+ data: data, 
+ success: function(response) {
+  alert("Artist Submitted");
             //console.log(response);
-             
-         },
-        error: function() {
+            
+          },
+          error: function() {
             alert("There was an error submitting comment");
-        }
-     });
-           
+          }
+        });
+
 
 });
 

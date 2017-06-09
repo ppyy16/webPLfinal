@@ -45,7 +45,7 @@ if(isset($_POST['cmd']) && $_POST['cmd'] == 'login') {
 //new instance of view to use
 $view = new projectview();
 
-
+//add new artist form js runs in addartist.js
 if(isset($_POST['submitartistform']) && $_POST['submitartistform'] == 'submit') {
     $artiststagename = $_POST['artistnamelabel'];
     $artistfullname = $_POST['artistfullnamelabel'];
@@ -55,12 +55,10 @@ if(isset($_POST['submitartistform']) && $_POST['submitartistform'] == 'submit') 
     $artisttwitter = $_POST['artisttwitter'];
 
     
-    //verify that username and password are correct
+    
     $model = new projectmodel();
 
-    //echo "foo";
-    
-//send to new model to add artist
+
     try {
 
 
@@ -97,21 +95,20 @@ if(isset($_POST['isearch4u']) && $_POST['isearch4u'] == 'do it') {
 
 
 
-//autosearch
-
+//autosearch controller
 if (isset($_GET['term'])){
 
- 
 
-$autosearch = $_GET['term'];
+
+    $autosearch = $_GET['term'];
 
 
 
     $model = new projectmodel();
 
-try {
-    $finalsearch = $model->autosearch($autosearch);
-    $view->autosearch($autosearch);
+    try {
+        $finalsearch = $model->autosearch($autosearch);
+        $view->autosearch($autosearch);
 
 
 
@@ -127,8 +124,7 @@ try {
 
 
 
-//faves controller
-
+//artist faves controller
 if(isset($_POST['ifave4u']) && $_POST['ifave4u'] == 'addtofaveyes') {
 //echo "hi";
 
@@ -148,8 +144,13 @@ if(isset($_POST['ifave4u']) && $_POST['ifave4u'] == 'addtofaveyes') {
     //header('Location:index5.html');
 }
 
-////////list
 
+
+
+
+
+
+//favorites list controller function
 if(isset($_POST['favelist']) && $_POST['favelist'] == 'list') {
 
 
@@ -171,8 +172,7 @@ if(isset($_POST['favelist']) && $_POST['favelist'] == 'list') {
 
 
 
-////reg
-
+//registeration control check -> goes to registeruser.js
 if(isset($_POST['submitregform']) && $_POST['submitregform'] == 'yes') {
     $userfirstname = $_POST['userfirstname'];
     $userlastname = $_POST['userlastname'];
@@ -181,12 +181,11 @@ if(isset($_POST['submitregform']) && $_POST['submitregform'] == 'yes') {
     $userbirthday = $_POST['userbirthday'];
 
     
-    //verify that username and password are correct
+    
     $model = new projectmodel();
 
-    //echo "foo";
     
-//send to new model to add artist
+//send to new model and run it based on it
     try {
 
 

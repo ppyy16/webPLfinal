@@ -14,9 +14,10 @@
 
   <style type="text/css"> 
 
+    /*startsession to get variables*/
     <script> <?php session_start(); ?> </script>
 
-
+    /*css*/
 
     #navigation {
       padding-bottom: 20px;
@@ -60,10 +61,9 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#" class="not-active" >Add Artist</a></li>
-         
+
           <li><a id= "loggedinas" href="#"><?php
-//session_start();
-   //Read your session (if it is set)
+          //get email for navbar
            if (isset($_SESSION['username'])){
             echo $_SESSION['username'];
           }
@@ -88,7 +88,6 @@
 
 
   <!-- artist add form -->
-  <!-- need success for artist name from bootstrap and need to make sure input is okay checks-->
   <form id="submitartistform" method="POST">
     <div class="form-group">
       <label for="artistnamelabel">Artist Name (stage)</label>
