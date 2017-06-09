@@ -108,10 +108,20 @@ $.ajax({
 
 
 
+
+
+
+
+
+
+
+
 //onclick function for favelist
 
 $("#getartists").on("click", function(e) {
  e.preventDefault();
+ // a way to get rid of the button after using it
+ $( "#getartists" ).empty();
 
    //okay we're getting the email good
    $someelement2 = document.getElementById("loggedinas");
@@ -140,46 +150,13 @@ $.ajax({
            //we want to get that shit out of that shitty array
            //magic: it worked
            var array = JSON.parse(response);
-
-
-
            
            array.forEach(function(entry) {
             $('#myfeed').append(
-              '<ol><li><a href="artistpage.php?myvar=' + entry +'">' + entry + '</a></li></ol>'
+              '<ul><li><a href="artistpage.php?myvar=' + entry +'">' + entry + '</a></li></ul>'
 
               );
           });
-
-
-
-
-
-
-
-
-
-          // $.each(array, function(id, itm){
-
-
-          //   $('#myfeed').append(
-          //     '<ol><li>' + id +'</li></ol>'
-          //     );
-
-
-
-          // })
-
-          
-
-
-
-
-
-
-
-
-
 
 
 

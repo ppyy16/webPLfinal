@@ -118,7 +118,8 @@ margin-right : 500px ;
        
   
 }
-
+/*a:hover,a:visited { color:#000; }
+*/
 
 </style>
 
@@ -165,7 +166,7 @@ margin-right : 500px ;
 <body id="linear-gradient" class="PageType">
 
 
-<a id="getartists" href="#">Get artists</a>
+
 
 <div id="searchbarcontainer">
     <form action='' method='post'>
@@ -200,8 +201,10 @@ margin-right : 500px ;
   
 
 
-
+<a id="getartists" href="#"><span class="glyphicon glyphicon-refresh"></span>Refresh Artists</a><br><br>
+<strong>My Artists</strong><br>
     <div id="myfeed">
+    
         
     </div>
 
@@ -229,6 +232,11 @@ margin-right : 500px ;
 
 <script src="javascriptneeds.js"></script>
 <script src="listfavorites.js"></script>
+<script>
+jQuery(function(){
+   jQuery('#getartists').click();
+});
+</script>
 <!-- my own script -->
 
 </body>

@@ -140,3 +140,9 @@ bg3 pic
 
 https://stackoverflow.com/questions/9420567/convert-json-string-to-javascript-array
 this page was written by the gods
+
+https://stackoverflow.com/questions/18646881/auto-click-button-element-on-page-load-using-jquery
+autoclick button
+
+https://www.w3schools.com/bootstrap/bootstrap_ref_comp_glyphs.asp
+bootsrap icons
