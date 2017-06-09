@@ -1,36 +1,110 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Bootstrap stuff -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fanhub</title>
-<!-- Bootstrap -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Bootstrap stuff -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fanhub</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<style type="text/css"> </style>
+  <style type="text/css"> 
+
+
+
+
+    #navigation {
+      padding-bottom: 20px;
+    }
+
+
+
+    .linear-gradient {
+      background: linear-gradient(#b3daff, transparent); 
+      background-repeat: no-repeat;
+
+    }
+
+
+    .navbar-custom {
+      background-color:#000000;
+      color:#ffffff;
+      border-radius:0;
+    }
+
+    .form-group {
+     padding-right: 20px;
+     padding-left: 20px;
+   }
+ </style>
+
+
+ <!-- navigation -->
+ <div id="navigation">
+  <nav id="navbaritself" class="navbar navbar-custom">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index5.html">Fanhub</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+         <li> <br>register </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+</div>
+
 </head>
 
-<body>
-
-<form>
-  <div class="form-group">
-    <label for="formGroupExampleInput">Example label</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-  </div>
-  <div class="form-group">
-    <label for="formGroupExampleInput2">Another label</label>
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-  </div>
-</form>
+<body class="linear-gradient">
 
 
 
 
+  <!-- artist add form -->
+  <!-- need success for artist name from bootstrap and need to make sure input is okay checks-->
+  <form id="registrationform" method="POST">
+    <div class="form-group">
+      <label for="userfirstname">First Name</label>
+      <input type="text" class="form-control" name="userfirstname" id="userfirstname" placeholder="Parima">
+    </div>
+    <div class="form-group">
+      <label for="userlastname">Last Name</label>
+      <input type="text" class="form-control" id="userlastname" name="userlastname" placeholder="Sahbai">
+    </div>
+    <div class="form-group">
+      <label for="userpassword">Password</label>
+      <input type="text" class="form-control" id="userpassword" name="userpassword" placeholder="******">
+    </div>
+    <div class="form-group">
+      <label for="useremail">email</label>
+      <input type="text" class="form-control" id="useremail" name="useremail" placeholder="ps4ww@virginia.edu">
+    </div>
+    <div class="form-group">
+     <label for="userbirthday" class="col-2 col-form-label">Birthday</label>
+     <div class="col-10">
+      <input class="form-control" type="date" value="1995-12-25" id="userbirthday" name="userbirthday">
+    </div>
+
+    
+    <br>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-default" name="submitreg" value="submit" id="submitreg"> Submit</button>
+    </div>
+
+  </form>
 
 
 
@@ -41,12 +115,16 @@
 
 
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<!-- my own script -->
-<!-- <script src="tablehw4.js"></script>
- --></body>
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- my own script -->
+  <script src="registeruser.js"></script>
+  <script src="javascriptneeds.js"></script>
+
+</body>
 </html>

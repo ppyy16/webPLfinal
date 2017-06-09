@@ -1,35 +1,35 @@
 //search button
 //search goes to controller
-$("#searchsubmit").on("click", function(e) {
-  //prevent the default action
+// $("#searchsubmit").on("click", function(e) {
+//   //prevent the default action
 
-  e.preventDefault();
+//  e.preventDefault();
 
-//setting the data and the identifier
-var data = {
-  searchterm : $('#searchbox').val(),
-
-
-  isearch4u: "do it"
-};
-
-//ajax post request with promise handler
-$.ajax({
- type: 'POST',
- url: "projcontroller.php",
- data: data, 
- success: function(response) {
-  alert(response);
-            //console.log(response);
-            
-          },
-          error: function() {
-            alert("There was an error searching");
-          }
-        });
+// //setting the data and the identifier
+//  var data = {
+//         searchterm : $('#searchbox').val(),
 
 
-});
+//       isearch4u: "do it"
+//     };
+
+// //ajax post request with promise handler
+//     $.ajax({
+//          type: 'POST',
+//          url: "projcontroller.php",
+//          data: data, 
+//          success: function(response) {
+//             alert(response);
+//             //console.log(response);
+             
+//          },
+//         error: function() {
+//             alert("There was an error searching");
+//         }
+//      });
+           
+
+// });
 
 
 //redirect send get request and then grab it from the url
@@ -59,44 +59,44 @@ $(function() {
 //favorites link
 
 $("#favelink").on("click", function(e) {
- e.preventDefault();
+   e.preventDefault();
    //gets the stagename
-   $someelement = document.getElementById("welcomeheader");
+  $someelement = document.getElementById("welcomeheader");
   //gets the thing inside and converts it to string! so now we have our name!
-  alert($someElementToString = $someelement.innerHTML);
+  $someElementToString = $someelement.innerHTML;
 
    //do same for username
   //loggedinas
   $someelement2 = document.getElementById("loggedinas");
-  alert($someElementToString2 = $someelement2.innerHTML);
+  $someElementToString2 = $someelement2.innerHTML;
 
   //now we need to send it to controller
 
 
 
 //setting the data and the identifier
-var data = {
-  addtofave : $someElementToString,
-  useremail: $someElementToString2,
+ var data = {
+        addtofave : $someElementToString,
+        useremail: $someElementToString2,
 
 
-  ifave4u: "addtofaveyes"
-};
+      ifave4u: "addtofaveyes"
+    };
 
 //ajax post request with promise handler
-$.ajax({
- type: 'POST',
- url: "projcontroller.php",
- data: data, 
- success: function(response) {
-  alert("Artist added to your favorites!");
+    $.ajax({
+         type: 'POST',
+         url: "projcontroller.php",
+         data: data, 
+         success: function(response) {
+            alert("Artist added to your favorites!");
             //console.log(response);
-            
-          },
-          error: function() {
+             
+         },
+        error: function() {
             alert("There was an error adding your artist to your favorites");
-          }
-        });
+        }
+     });
 
 });
 
@@ -108,7 +108,7 @@ $.ajax({
 ///////////////////////
 
 $("#getartists").on("click", function(e) {
- e.preventDefault();
+   e.preventDefault();
 
    //do same for username
   //loggedinas
@@ -122,28 +122,28 @@ $("#getartists").on("click", function(e) {
 
 //setting the data and the identifier
 //sending it out right
-var data = {
-  useremail: $someElementToString2,
+ var data = {
+        useremail: $someElementToString2,
 
 
-  favelist: "list"
-};
+      favelist: "list"
+    };
 
 //ajax post request with promise handler
-//not returning the right
-$.ajax({
- type: 'POST',
- url: "projcontroller.php",
- data: data, 
- success: function(response) {
+//not returning the r
+    $.ajax({
+         type: 'POST',
+         url: "projcontroller.php",
+         data: data, 
+         success: function(response) {
             // alert("did the thing");
             alert(response[0]);
-            
-          },
-          error: function() {
+             
+         },
+        error: function() {
             alert("There was an error adding your artist to your favorites");
-          }
-        });
+        }
+     });
 
 });
 

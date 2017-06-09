@@ -74,6 +74,14 @@ class projectview {
 	}
 
 
+//////////
+	
+public function reguser($userfirstname, $userlastname, $userpassword ,$useremail, $userbirthday){
+		$result = $this->model->reguser($userfirstname, $userlastname, $userpassword ,$useremail, $userbirthday);
+
+
+		echo json_encode($result);
+	}
 	
 }
 

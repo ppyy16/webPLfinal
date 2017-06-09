@@ -4,6 +4,48 @@ $("#submitartist").on("click", function(e) {
   //prevent the default action
   e.preventDefault();
 
+//cleaning the inputs
+
+var stage = $("#artistnamelabel").val();
+var name = $("#artistfullnamelabel").val();
+var last = $("#artistfulllastnamelabel").val();
+var desc = $("#artistdesc").val();
+var twitter = $("#artisttwitter").val();
+
+
+
+
+
+ if(stage === ""){
+  alert("You have an empty stagename");
+  return;
+}
+ if(name === ""){
+  alert("You have an empty first name");
+  return;
+}
+
+ if(last === ""){
+  alert("You have an empty last name");
+  return;
+}
+
+ if(twitter === ""){
+  alert("You have an empty twitter");
+  return;
+}
+
+
+
+ if(desc === ""){
+  alert("You have an empty description");
+  return;
+}
+
+
+
+
+
 //setting the data
     var data = {
       artistnamelabel: $('#artistnamelabel').val(),

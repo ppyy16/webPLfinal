@@ -194,7 +194,7 @@ border:2px dashed #ccc;}
 
 </h1>
 <div id="userimgdiv">
-  <img src="sampleuser.jpg" id="userimg" class="img-circle" alt="Cinque Terre" align= "middle">
+  <img src="whyunosave.jpg" id="userimg" class="img-circle" alt="Cinque Terre" align= "middle">
   <h4><?php
    //Read your session (if it is set)
    if (isset($_SESSION['last2']) && isset($_SESSION['first2'])){

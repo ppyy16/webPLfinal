@@ -113,14 +113,11 @@ padding: 25px;
 }
 
 #searchbarcontainer{
-     width: 150px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+margin-left : 500px ;
+margin-right : 500px ;
+       
   
 }
-    
-
 
 
 </style>
@@ -140,6 +137,7 @@ padding: 25px;
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="addartist.php">Add Artist</a></li>
+      
         <li><a id= "loggedinas" href="#"><?php
 //session_start();
    //Read your session (if it is set)
@@ -147,7 +145,7 @@ padding: 25px;
           echo $_SESSION['username'];
       }
       else {
-        echo "Error loading your name";
+        echo "Please set your name in settings";
     }
 
     ?></a></li>
@@ -169,25 +167,21 @@ padding: 25px;
 
 <a id="getartists" href="#">Get artists</a>
 
+<div id="searchbarcontainer">
+    <form action='' method='post'>
+        <p><label>Artist Search:</label><input id="searchbar" type='text' name='country' value='' class='auto'></p>
+
+    </form>
+
+    </div>
 
 
     <h1 id="welcomeheader">Welcome <?php if (isset($_SESSION['firstname'])){
         echo $_SESSION['firstname'];
     }
     ?>!</h1>
-
-
-
-    
-<div id="searchbarcontainer">
-    <form action='' method='post'>
-        <p><label id="searchlabel">Artist Search:</label><input id="searchbar" type='text' name='country' value='' class='auto'></p>
-
-    </form>
-
-    </div>
     <div id="userimgdiv">
-        <img src="sampleuser.jpg" id="userimg" class="img-circle" alt="Cinque Terre" align= "middle">
+        <img src="whyunosave.jpg" id="userimg" class="img-circle" alt="Cinque Terre" align= "middle">
         <h4><?php
    //Read your session (if it is set)
          if (isset($_SESSION['firstname']) && isset($_SESSION['lastname'])){
@@ -198,16 +192,12 @@ padding: 25px;
     }
 
     ?></h4>
- <!--    <span class="text-muted">64 Artists</span> -->
 </div>
 
 
 <div class="wrapper">
 
-    <div id="myartists">
-
-        this is my artists
-    </div>
+  
 
 
 

@@ -101,17 +101,17 @@ if(isset($_POST['isearch4u']) && $_POST['isearch4u'] == 'do it') {
 
 if (isset($_GET['term'])){
 
-   
+ 
 
-    $autosearch = $_GET['term'];
+$autosearch = $_GET['term'];
 
 
 
     $model = new projectmodel();
 
-    try {
-        $finalsearch = $model->autosearch($autosearch);
-        $view->autosearch($autosearch);
+try {
+    $finalsearch = $model->autosearch($autosearch);
+    $view->autosearch($autosearch);
 
 
 
@@ -152,7 +152,7 @@ if(isset($_POST['ifave4u']) && $_POST['ifave4u'] == 'addtofaveyes') {
 
 if(isset($_POST['favelist']) && $_POST['favelist'] == 'list') {
 
-    
+
     $useremail = $_POST['useremail'];
 
     $model = new projectmodel();
@@ -164,6 +164,36 @@ if(isset($_POST['favelist']) && $_POST['favelist'] == 'list') {
     } catch(Exception $e) {
         // we want to redirect the user
         //some error message
+    }
+} else {
+    //header('Location:index5.html');
+}
+
+
+
+////reg
+
+if(isset($_POST['submitregform']) && $_POST['submitregform'] == 'yes') {
+    $userfirstname = $_POST['userfirstname'];
+    $userlastname = $_POST['userlastname'];
+    $userpassword = $_POST['userpassword'];
+    $useremail = $_POST['useremail'];
+    $userbirthday = $_POST['userbirthday'];
+
+    
+    //verify that username and password are correct
+    $model = new projectmodel();
+
+    //echo "foo";
+    
+//send to new model to add artist
+    try {
+
+
+        $addartist = $model->reguser($userfirstname, $userlastname, $userpassword ,$useremail, $userbirthday);
+        
+    } catch(Exception $e) {
+        //we couldnt run it so redirect or refresh page?
     }
 } else {
     //header('Location:index5.html');
