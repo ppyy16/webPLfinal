@@ -158,4 +158,42 @@ if(isset($_POST['ifave4u']) && $_POST['ifave4u'] == 'addtofaveyes') {
 
 
 
+
+
+
+
+//fave lister
+//if the post request says i list4 you and the value is let me in then
+if(isset($_POST['ilist4u']) && $_POST['ilist4u'] == 'letmein') {
+//echo "hi";
+    //make a variable called emailextract4 that holds the user email
+
+    $emailextract4 = $_POST['emailextract4'];
+
+    //set up a new model and send it off with the variable you just made
+
+    $model = new projectmodel();
+
+    //send model off with variable and catch try it
+
+    try {
+        $artistlistdisplayfinal = $model->artistlistdisplay($emailextract4);
+    } catch(Exception $e) {
+        // we want to redirect the user
+        //some error message
+    }
+} else {
+    //header('Location:index5.html');
+}
+
+
+
+
+
+
+
+
+
+
+
 ?>

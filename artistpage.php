@@ -23,7 +23,7 @@ require_once('projectview.php');
 $view = new projectview();
 
 
-//$view->userfavelist($useremail);
+$view->filloutartist($_GET["myvar"]);
 
 
 ?>
