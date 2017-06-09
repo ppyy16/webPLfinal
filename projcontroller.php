@@ -115,7 +115,7 @@ if (isset($_GET['term'])){
     }
 
     catch(PDOException $e) {
-        echo 'ERROR: ' . $e->getMessage();
+        //echo 'ERROR: ' . $e->getMessage();
     }
 
 
@@ -137,12 +137,9 @@ if(isset($_POST['ifave4u']) && $_POST['ifave4u'] == 'addtofaveyes') {
     try {
         $addartisttofaves = $model->addartisttofaves($addtofave, $useremail);
     } catch(Exception $e) {
-        // we want to redirect the user
-        //some error message
+        //echo 'ERROR: ' . $e->getMessage();
     }
-} else {
-    //header('Location:index5.html');
-}
+} 
 
 
 
@@ -163,12 +160,9 @@ if(isset($_POST['favelist']) && $_POST['favelist'] == 'list') {
         $favelistadd = $model->favelist($useremail);
         $view->favelist($useremail);
     } catch(Exception $e) {
-        // we want to redirect the user
-        //some error message
+        //echo 'ERROR: ' . $e->getMessage();
     }
-} else {
-    //header('Location:index5.html');
-}
+} 
 
 
 
@@ -190,13 +184,17 @@ if(isset($_POST['submitregform']) && $_POST['submitregform'] == 'yes') {
 
 
         $addartist = $model->reguser($userfirstname, $userlastname, $userpassword ,$useremail, $userbirthday);
+        if(!$addartist) {
+            echo "duplicate user";
+        }
+        else {
+            echo "duplicate user";
+        }
         
     } catch(Exception $e) {
-        //we couldnt run it so redirect or refresh page?
+       //echo 'ERROR: ' . $e->getMessage();
     }
-} else {
-    //header('Location:index5.html');
-}
+} 
 
 
 ?>

@@ -1,40 +1,3 @@
-//search button
-//search goes to controller
-// $("#searchsubmit").on("click", function(e) {
-//   //prevent the default action
-
-//  e.preventDefault();
-
-// //setting the data and the identifier
-//  var data = {
-//         searchterm : $('#searchbox').val(),
-
-
-//       isearch4u: "do it"
-//     };
-
-// //ajax post request with promise handler
-//     $.ajax({
-//          type: 'POST',
-//          url: "projcontroller.php",
-//          data: data, 
-//          success: function(response) {
-//             alert(response);
-//             //console.log(response);
-
-//          },
-//         error: function() {
-//             alert("There was an error searching");
-//         }
-//      });
-
-
-// });
-
-
-
-
-
 //redirect send get request and then grab it from the url
 //autocomplete onclick
 
@@ -48,7 +11,6 @@ $(function() {
   		//put it at the end of the
 
 
-//set a breakpoint
   		//keep it
   		window.location = "artistpage.php?myvar=" + ui.item.value;
   	},
@@ -108,16 +70,7 @@ $.ajax({
 
 
 
-
-
-
-
-
-
-
-
 //onclick function for favelist
-
 $("#getartists").on("click", function(e) {
  e.preventDefault();
  // a way to get rid of the button after using it
@@ -128,7 +81,6 @@ $("#getartists").on("click", function(e) {
    $someElementToString2 = $someelement2.innerHTML;
 
   //now we need to send it to controller
-
 //setting the data and the identifier
 //sending it out right
 var data = {
@@ -160,8 +112,8 @@ $.ajax({
 
 
 
-        },
-        error: function() {
+         },
+         error: function() {
           alert("There was an error adding your artist to your favorites");
         }
       });

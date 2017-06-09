@@ -1,3 +1,5 @@
+//registeruser.js
+
 //I wanted to keep this seperate
 //what happens when the submit artist button is clicked
 $("#submitreg").on("click", function(e) {
@@ -45,11 +47,11 @@ if(email === ""){
 
 //setting the data
 var data = {
-  userfirstname: $('#userfirstname').val(),
-  userlastname: $('#userlastname').val(),
-  userpassword: $('#userpassword').val(),
-  useremail: $('#useremail').val(),
-  userbirthday: $('#userbirthday').val(),
+  userfirstname: $('#userfirstname').val().trim(),
+  userlastname: $('#userlastname').val().trim(),
+  userpassword: $('#userpassword').val().trim(),
+  useremail: $('#useremail').val().trim(),
+  userbirthday: $('#userbirthday').val().trim(),
 
 
   submitregform: "yes"
@@ -61,12 +63,13 @@ $.ajax({
  url: "projcontroller.php",
  data: data, 
  success: function(response) {
-  alert("Registeration complete");
+  //alert("Registeration complete");
             //console.log(response);
+            alert(response);
             
           },
           error: function() {
-            alert("There was an error submitting comment");
+            alert("There was an error registering you");
           }
         });
 

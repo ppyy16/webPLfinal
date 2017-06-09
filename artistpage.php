@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +16,9 @@
   <!-- getting my var from the url and sending it to controller later -->
   <?php
   session_start();
+  if (!isset($_SESSION['username'])){
+          header('Location:index5.html');
+}
   $_SESSION['loggedin'] = true;
   $_SESSION['artisturlname'] = htmlspecialchars($_GET["myvar"]);
   require_once('projectview.php');

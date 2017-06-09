@@ -46,7 +46,7 @@ class projectmodel {
         }
         
         if($prepared->rowCount() == 0 ) {
-            alert("Login failed");
+            //alert("Login failed");
             throw new Exception("User $user not found");
         }
         
@@ -55,7 +55,7 @@ class projectmodel {
         
         if(sha1($pass) != $stored_pass) {
             throw new Exception("Password wrong");
-            alert("Login failed");
+            //alert("Login failed");
         }
         
         return true;
@@ -63,7 +63,6 @@ class projectmodel {
 
 
     //take in username and return name
-    //todo: check to make sure you get one row back 
     public function getfirstname($user) {
         $prepared = $this->connection->prepare(
             "SELECT * FROM users WHERE email = :email"
@@ -94,8 +93,6 @@ class projectmodel {
 
 
 //get user last name
-//todo: check to make sure you get one row back 
-
     public function getlastname($user) {
         $prepared = $this->connection->prepare(
             "SELECT * FROM users WHERE email = :email"
@@ -127,25 +124,13 @@ class projectmodel {
 
  //adds artists to the database
     public function addartist($artiststagename, $artistfullname, $artistfulllastnamelabel, $artistbirthday, $artistdesc, $artisttwitter){
-     $prepared = $this->connection->prepare(
+       $prepared = $this->connection->prepare(
         "INSERT INTO artists (stagename, first, last, birthday, description, twitterid) VALUES (:stagename, :first, :last, :birthday, :description, :twitter);"
         );
 
 
-     $prepared->execute(array(
-        ":stagename" => $artiststagename,
-        ":first" => $artistfullname,
-        ":last" => $artistfulllastnamelabel,
-        ":birthday" => $artistbirthday,
 
-        ":description" => $artistdesc,
-        ":twitter" => $artisttwitter
-        ));
-
-
-
-
-     if(!$prepared->execute(array(
+       if(!$prepared->execute(array(
         ":stagename" => $artiststagename,
         ":first" => $artistfullname,
         ":last" => $artistfulllastnamelabel,
@@ -171,51 +156,6 @@ return;
 
 
 
-// //search by stagename
-// public function searchartist($artiststagename){
-//     $artistfound = false;
-
-//     $prepared = $this->connection->prepare("SELECT * FROM artists WHERE stagename =:stagename");
-//     $prepared->execute([":stagename" => $artiststagename]);
-
-//     if(!$prepared->execute([":stagename" => $artiststagename])){
-//         throw new Exception("FATAL ERROR SEND IN BACKUPS! (query)");
-
-//     }
-
-
-
-//     // $endresult = $prepared->fetchAll();
-//     // print_r($endresult);
-
-//     while($row = $prepared->fetch(PDO::FETCH_ASSOC)){
-//         $artistfound = true;
-
-//         //shouldn't be happening
-//         // echo "Artist Exists!!". "     ";
-//         // echo $this->stagename = "Stage Name: " . $row['stagename'] . " "; 
-//         // echo $this->first = "First Name: " . $row['first']. " ";
-//         // echo $this->last = "Last Name: ". $row['last']. " ";
-//         // echo $this->birthday = "Birthday: " . $row['birthday'];
-//     }
-
-// //what happens if your result doesnt exist
-//     if($artistfound == false){
-//         echo "Artist not found. Add them to our database";
-//     }
-
-
-//     return;
-
-
-
-
-// }
-
-
-
-
-
 
 //fillout the page for the artist
 public function filloutartist($artiststagename){
@@ -224,12 +164,6 @@ public function filloutartist($artiststagename){
     $prepared = $this->connection->prepare("SELECT * FROM artists WHERE stagename =:stagename");
     $prepared->execute([":stagename" => $artiststagename]);
 
-        // foreach ($prepared->fetchAll(PDO::FETCH_ASSOC) as $row) { 
-        //     echo $stagename = $row['stagename'];
-        //     echo $firstname = $row['last'];
-
-
-        // }
 
     while($row = $prepared->fetch(PDO::FETCH_ASSOC)) {
         $artisttable[] = $row;  
@@ -263,7 +197,7 @@ return $artisttable;
 
 
 
-
+//autosearch
 public function autosearch($autosearch){
     $return_arr = array();
 
@@ -280,7 +214,7 @@ public function autosearch($autosearch){
 
         if( count($return_arr) == null ){
             $return_arr[] = 'No matches found';
-//$return_arr[] = $autosearch;
+
         }
 
     } catch(PDOException $e) {
@@ -297,17 +231,12 @@ public function autosearch($autosearch){
 //need to get username of the person clicking it............
 
 public function addartisttofaves($addtofave, $useremail) {
+    //check for duplicates
+
+
     $prepared = $this->connection->prepare(
         "INSERT INTO userfavorites (stagename, email) VALUES (:stagename, :email);"
         );
-
-
-    $prepared->execute(array(
-        ":stagename" => $addtofave,
-        ":email" => $useremail
-        ));
-
-
 
 
     if(!$prepared->execute(array(
@@ -322,7 +251,6 @@ if($prepared->rowCount() == 0 ) {
             // no results
     throw new Exception("Error adding your artist to your favorites");
 }
-
 
 
 return;
@@ -340,16 +268,16 @@ public function favelist($useremail){
         "SELECT * FROM userfavorites WHERE email = :email"
         );
 
-    $prepared->execute(array(':email' => $useremail));
-    foreach ($prepared->fetchAll(PDO::FETCH_ASSOC) as $row) { 
-        $return_arr[] =  $row['stagename'];
-    }
-
-
+    
 
     if(!$prepared->execute([":email" => $useremail])) {
             // FAILING TO EXECTURE THE QUERY
         throw new Exception("FATAL ERROR SEND IN BACKUPS! (query fail)");
+    }
+
+
+    foreach ($prepared->fetchAll(PDO::FETCH_ASSOC) as $row) { 
+        $return_arr[] =  $row['stagename'];
     }
 
     if($prepared->rowCount() == 0 ) {
@@ -358,7 +286,6 @@ public function favelist($useremail){
 
 
     }
-
 
 
     return $return_arr;
@@ -371,34 +298,37 @@ public function favelist($useremail){
 //register biz log
 public function reguser($userfirstname, $userlastname, $userpassword ,$useremail, $userbirthday)
 {
- $prepared = $this->connection->prepare(
-    "INSERT INTO users (firstname, lastname, password, birthday, email) VALUES (:firstname, :lastname, sha1(:password), :birthday, :email);"
-    );
+
+//duplicate check
+//SELECT COUNT(*) FROM users WHERE email = $useremail;
+    $prepared2 = $this->connection->prepare(
+        "SELECT * FROM users WHERE email = :email;");
+
+ //results is the error   
+    $results = $prepared2->execute([":email" => $useremail]);
 
 
- $prepared->execute(array(
-    ":firstname" => $userfirstname,
-    ":lastname" => $userlastname,
-    ":password" => $userpassword,
-    ":birthday" => $userbirthday,
-
-    ":email" => $useremail
-
-    ));
-
+    if($prepared2->rowCount() != 0 ) {
+        return false;
+    }
 
 
 
- if(!$prepared->execute(array(
-    ":firstname" => $userfirstname,
-    ":lastname" => $userlastname,
-    ":password" => $userpassword,
-    ":birthday" => $userbirthday,
+    $prepared = $this->connection->prepare(
+        "INSERT INTO users (firstname, lastname, password, birthday, email) VALUES (:firstname, :lastname, sha1(:password), :birthday, :email);"
+        );
 
-    ":email" => $useremail
-    ))) {
+
+    if(!$prepared->execute(array(
+        ":firstname" => $userfirstname,
+        ":lastname" => $userlastname,
+        ":password" => $userpassword,
+        ":birthday" => $userbirthday,
+
+        ":email" => $useremail
+        ))) {
             // FAILING TO EXECTURE THE QUERY
-    throw new Exception("FATAL ERROR SEND IN BACKUPS! (query)");
+        throw new Exception("FATAL ERROR SEND IN BACKUPS! (query)");
 }
 
 if($prepared->rowCount() == 0 ) {
@@ -408,16 +338,12 @@ if($prepared->rowCount() == 0 ) {
 
 
 
-return;
+return true;
 
 }
 
 
-
 }
-
-
-
 
 
 ?>

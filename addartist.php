@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,12 @@
   <style type="text/css"> 
 
     /*startsession to get variables*/
-    <script> <?php session_start(); ?> </script>
+    <script> <?php session_start(); 
+if (!isset($_SESSION['username'])){
+          header('Location:index5.html');
+}
+
+    ?> </script>
 
     /*css*/
 

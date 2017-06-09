@@ -1,13 +1,7 @@
+
 <?php
-//project view
+
 require_once('projectmodel.php');
-
-//session checker otherwise dont let them here
-if(!isset($_SESSION['loggedin'])) {
-	header('Location:index5.html');
-}
-
-
 
 class projectview {
 	//variable model

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +18,12 @@
       <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/themes/base/minified/jquery-ui.min.css" type="text/css" /> 
 
 
-    <script> <?php session_start(); ?> </script>
+    <script> <?php session_start(); 
+
+    if (!isset($_SESSION['username'])){
+          header('Location:index5.html');
+}
+?> </script>
 
     <style type="text/css"> 
 
@@ -32,8 +39,7 @@
             margin-right: auto;
             border:7px solid #FFFFFF;
         }
-    } /*this may be extra check into it
-*/
+    } 
 
     body{
         padding-top:60px;
@@ -197,10 +203,6 @@ margin-right : 500px ;
 
 
 <div class="wrapper">
-
-  
-
-
 <a id="getartists" href="#"><span class="glyphicon glyphicon-refresh"></span>Refresh Artists</a><br><br>
 <strong>My Artists</strong><br>
     <div id="myfeed">
@@ -218,10 +220,6 @@ margin-right : 500px ;
 
 
 
-
-
-
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -230,13 +228,14 @@ margin-right : 500px ;
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>    
 
-<script src="javascriptneeds.js"></script>
+
 <script src="listfavorites.js"></script>
 <script>
 jQuery(function(){
    jQuery('#getartists').click();
 });
 </script>
+<script src="javascriptneeds.js"></script>
 <!-- my own script -->
 
 </body>
