@@ -180,7 +180,20 @@ padding: 25px;
 </div>
 
 
+ 
 
+
+
+<?php
+   //Read your session (if it is set)
+         if (isset($_SESSION['username'])){
+          echo $_SESSION['username'];
+      }
+      else {
+        echo "Please set your name in settings";
+    }
+
+    ?>
 
 
 

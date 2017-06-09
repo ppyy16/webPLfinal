@@ -293,5 +293,47 @@ return $return_arr;
 
 
 
+//add artist to faves
+//need to get username of the person clicking it............
+
+public function addartisttofaves($addtofave, $useremail) {
+    $prepared = $this->connection->prepare(
+        "INSERT INTO userfavorites (stagename, email) VALUES (:stagename, :email);"
+        );
+
+
+       $prepared->execute(array(
+        ":stagename" => $addtofave,
+        ":email" => $useremail
+        ));
+
+
+
+
+       if(!$prepared->execute(array(
+        ":stagename" => $addtofave,
+        ":email" => $useremail
+        ))) {
+            // FAILING TO EXECTURE THE QUERY
+        throw new Exception("FATAL ERROR SEND IN BACKUPS! (query)");
 }
+
+if($prepared->rowCount() == 0 ) {
+            // no results
+    throw new Exception("Error adding your artist to your favorites");
+}
+
+
+
+return;
+
+
+}
+
+}
+
+
+
+
+
 ?>

@@ -96,3 +96,11 @@ http://php.net/manual/en/function.array-diff-key.php
 https://clicknathan.com/web-design/dynamically-update-username-twitter-widget/
 
 http://api.jqueryui.com/autocomplete/#event-select
+
+https://www.w3schools.com/html/html_links.asp
+
+https://stackoverflow.com/questions/4383914/how-to-get-single-value-from-php-array
+
+https://stackoverflow.com/questions/19488364/how-to-properly-use-while-loop-in-pdo-fetchall
+
+https://stackoverflow.com/questions/3771039/what-does-1-mean-at-the-end-of-a-php-print-r-statement

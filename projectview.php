@@ -57,6 +57,14 @@ class projectview {
 
 
 
+public function addartisttofaves($addtofave, $useremail){
+				$result = $this->model->addartisttofaves($addtofave, $useremail);
+
+
+		echo json_encode($result);
+	}
+
+
 	
 }
 

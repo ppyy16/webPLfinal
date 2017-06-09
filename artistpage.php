@@ -14,6 +14,7 @@
 
 
 <?php
+session_start();
 $_SESSION['loggedin'] = true;
  $_SESSION['artisturlname'] = htmlspecialchars($_GET["myvar"]);
 require_once('projectview.php');
@@ -117,6 +118,16 @@ padding: 25px;
 }
 }
 
+#loggedinas:hover {background-color: transparent;
+  color: #999999;
+
+}
+
+#loggedinas:focus {background-color: transparent;
+  color: #999999;
+    
+}
+
 
 </style>
 
@@ -136,7 +147,17 @@ padding: 25px;
       <ul class="nav navbar-nav navbar-right">
         <li><a href="addartist.php">Add Artist</a></li>
         <li><a href="#">Settings</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a id= "loggedinas" href="#"><?php
+//session_start();
+   //Read your session (if it is set)
+         if (isset($_SESSION['username'])){
+          echo $_SESSION['username'];
+      }
+      else {
+        echo "Please set your name in settings";
+    }
+
+    ?></a></li>
         <li><a href="logout.php">Logout</a></li>
     </ul>
     <form class="navbar-form navbar-right">
@@ -155,7 +176,13 @@ padding: 25px;
 <body class="linear-gradient">
 
 
-<div id="favelink"> </div>
+<div id="favelinkwrapper"> 
+
+<a id="favelink" href="#">Add to Favorites</a>
+
+
+
+</div>
 
 <h1 id="welcomeheader"><?php if (isset($_SESSION['artisturlname'])){
         echo $_SESSION['artisturlname'];
@@ -181,15 +208,6 @@ padding: 25px;
 
 <div>
 
-<!-- <?php
-   //Read your session (if it is set)
-         if (isset($_SESSION['first2']) && isset($_SESSION['last2'])){
-          echo $_SESSION['first2'] . " " . $_SESSION['last2'];
-      }
-      else {
-        echo "Please set your name in settings";
-    }
-    ?> -->
 
 </div>
 
@@ -300,6 +318,7 @@ padding: 25px;
           
 
 </div>
+
 
 
 

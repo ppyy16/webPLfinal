@@ -124,13 +124,29 @@ try {
 
 }
 
-//check for the ajax req.
-
-// if(isset($_SESSION['artisturlname'])){
-//     echo "yes";
-// }
 
 
+
+//faves controller
+
+if(isset($_POST['ifave4u']) && $_POST['ifave4u'] == 'addtofaveyes') {
+//echo "hi";
+
+    $addtofave = $_POST['addtofave'];
+    $useremail = $_POST['useremail'];
+
+    $model = new projectmodel();
+
+
+    try {
+        $addartisttofaves = $model->addartisttofaves($addtofave, $useremail);
+    } catch(Exception $e) {
+        // we want to redirect the user
+        //some error message
+    }
+} else {
+    //header('Location:index5.html');
+}
 
 
 

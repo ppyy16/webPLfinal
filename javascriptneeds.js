@@ -56,55 +56,50 @@ $(function() {
 });
 
 
+//favorites link
 
-$(document).ready(function(){
-  $(".editor-header a").click(function(e){
-    e.preventDefault();
 
-    var _val = $(this).data("role"),
-        _sizeValIn = parseInt($(this).data("size-val") + 1),
-        _sizeValRe = parseInt($(this).data("size-val") - 1),
-        _size = $(this).data("size");
-    if(_size == "in-size"){
-      document.execCommand(_val, false, _sizeValIn + "px");
-    } else{
-      document.execCommand(_val, false, _sizeValRe + "px");
-    }
-  });
-});
+$("#favelink").on("click", function(e) {
+   e.preventDefault();
+   //gets the stagename
+  $someelement = document.getElementById("welcomeheader");
+  //gets the thing inside and converts it to string! so now we have our name!
+  alert($someElementToString = $someelement.innerHTML);
 
-$(document).ready(function(){
-  var $text = $("#text"),
-      $submit = $("input[type='submit']"),
-      $listComment = $(".list-comments"),
-      $loading = $(".loading"),
-      _data,
-      $totalCom = $(".total-comment");
+   //do same for username
+  //loggedinas
+  $someelement2 = document.getElementById("loggedinas");
+  alert($someElementToString2 = $someelement2.innerHTML);
 
-  $totalCom.text($(".list-comments > div").length);
+  //now we need to send it to controller
 
-  $($submit).click(function(){
-    if($text.html() == ""){
-      alert("Plesea write a comment!");
-      $text.focus();
-    } else{
-      _data = $text.html();
-      $.ajax({
-        type: "POST",
-        url: window.local,
-        data: _data,
-        cache: false,
-        success: function(html){
-          $loading.show().fadeOut(300);
-          $listComment.append("<div>"+_data+"</div>");
-          $text.html("");
-          $totalCom.text($(".list-comments > div").length);
+
+
+//setting the data and the identifier
+ var data = {
+        addtofave : $someElementToString,
+        useremail: $someElementToString2,
+
+
+      ifave4u: "addtofaveyes"
+    };
+
+//ajax post request with promise handler
+    $.ajax({
+         type: 'POST',
+         url: "projcontroller.php",
+         data: data, 
+         success: function(response) {
+            alert("Artist added to your favorites!");
+            //console.log(response);
+             
+         },
+        error: function() {
+            alert("There was an error adding your artist to your favorites");
         }
-      });
-      return false;
-    }
-  });
-});
+     });
 
-//view artist
-//need to make a way to get to artist through search
+
+
+
+});
