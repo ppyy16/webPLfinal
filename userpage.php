@@ -53,7 +53,7 @@
 
     }
 
-    .linear-gradient {
+    #linear-gradient {
         background: linear-gradient(#b3daff, transparent); 
         background-repeat: no-repeat;
 
@@ -102,6 +102,16 @@ padding: 25px;
 }
 }
 
+#loggedinas:hover {background-color: transparent;
+  color: #999999;
+
+}
+
+#loggedinas:focus {background-color: transparent;
+  color: #999999;
+    
+}
+
 
 </style>
 
@@ -121,7 +131,17 @@ padding: 25px;
       <ul class="nav navbar-nav navbar-right">
         <li><a href="addartist.php">Add Artist</a></li>
         <li><a href="#">Settings</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a id= "loggedinas" href="#"><?php
+//session_start();
+   //Read your session (if it is set)
+         if (isset($_SESSION['username'])){
+          echo $_SESSION['username'];
+      }
+      else {
+        echo "Please set your name in settings";
+    }
+
+    ?></a></li>
         <li><a href="logout.php">Logout</a></li>
     </ul>
 
@@ -135,7 +155,7 @@ padding: 25px;
 
 </head>
 
-<body class="linear-gradient">
+<body id="linear-gradient" class="PageType">
 
 
     <form action='' method='post'>
@@ -168,13 +188,13 @@ padding: 25px;
 
     <div id="myartists">
 
-        this is my artists
     </div>
 
 
 
     <div id="myfeed">
         this is my feed
+        
     </div>
 
 </div>
@@ -184,16 +204,6 @@ padding: 25px;
 
 
 
-<?php
-   //Read your session (if it is set)
-         if (isset($_SESSION['username'])){
-          echo $_SESSION['username'];
-      }
-      else {
-        echo "Please set your name in settings";
-    }
-
-    ?>
 
 
 

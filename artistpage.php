@@ -16,14 +16,14 @@
 <?php
 session_start();
 $_SESSION['loggedin'] = true;
- $_SESSION['artisturlname'] = htmlspecialchars($_GET["myvar"]);
+
 require_once('projectview.php');
         
 
 $view = new projectview();
 
 
-$view->filloutartist($_GET["myvar"]);
+//$view->userfavelist($useremail);
 
 
 ?>
@@ -36,7 +36,7 @@ $view->filloutartist($_GET["myvar"]);
 
     }
 
-     .linear-gradient {
+     #linear-gradient {
         background: linear-gradient(#b3daff, transparent); 
         background-repeat: no-repeat;
 
@@ -173,7 +173,7 @@ padding: 25px;
 
 </head>
 
-<body class="linear-gradient">
+<body id="linear-gradient">
 
 
 <div id="favelinkwrapper"> 
@@ -220,7 +220,7 @@ padding: 25px;
 
     <div id="myartists">
 
-        this is my artists
+        
     </div>
 
 

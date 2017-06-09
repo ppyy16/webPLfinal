@@ -330,6 +330,155 @@ return;
 
 }
 
+
+
+
+public function userfavelist($useremail){
+    $artistfound = false;
+
+    $prepared = $this->connection->prepare("SELECT * FROM userfavorites WHERE email =:email");
+    $prepared->execute([":email" => $useremail]);
+
+    if(!$prepared->execute([":email" => $useremail])){
+        throw new Exception("FATAL ERROR SEND IN BACKUPS! (query)");
+
+    }
+
+
+
+    // $endresult = $prepared->fetchAll();
+    // print_r($endresult);
+
+    while($row = $prepared->fetch(PDO::FETCH_ASSOC)){
+        $artistfound = true;
+
+        //shouldn't be happening
+        echo "Artist Exists!!". "     ";
+        echo $this->stagename = "Stage Name: " . $row['stagename'] . " "; 
+    }
+
+//what happens if your result doesnt exist
+    if($artistfound == false){
+        echo "Artist not found. Add them to our database";
+    }
+
+
+    return;
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// //view list of fave artists on profile
+// public function userfavelist($useremail)
+
+
+// {
+//     $return_arr = array();
+
+
+
+//     try {
+//     $stmt = $this->connection->prepare("SELECT * FROM userfavorites WHERE email = :email");
+//          $stmt->execute([":email" => $useremail]);
+        
+//          while($row = $stmt->fetch()) {
+//             $return_arr[] =  $row['stagename'];
+//         }
+
+
+// if( count($return_arr) == null ){
+// $return_arr[] = 'No matches found';
+// //$return_arr[] = $autosearch;
+// }
+
+//     } catch(PDOException $e) {
+//         echo 'ERROR: ' . $e->getMessage();
+//     }
+
+// return $return_arr;
+// }
+
+
+//SELECT * FROM userfavorites, artists WHERE userfavorites.stagename = artists.stagename
+
+
+
+
+
+
+// {
+//     $userfaves = array();
+
+//     $prepared = $this->connection->prepare("SELECT * FROM userfavorites WHERE email =:email");
+//     $prepared->execute([":email" => $useremail]);
+
+       
+
+//     while($row = $prepared->fetch()) {
+//             $userfaves[] = $row['stagename']; 
+//         }
+
+
+
+
+//        if(!$prepared->execute(array(
+//         ":email" => $useremail
+//         ))) {
+//             // FAILING TO EXECTURE THE QUERY
+//         throw new Exception("FATAL ERROR SEND IN BACKUPS! (query)");
+// }
+
+// if($prepared->rowCount() == 0 ) {
+//             // no results
+//     throw new Exception("Error grabbing your favorite artists");
+// }
+
+// //print_r($fullarray);
+// if($userfaves == null){
+//         throw new Exception("Error adding your artist");
+
+// }
+
+
+// return $userfaves;
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 

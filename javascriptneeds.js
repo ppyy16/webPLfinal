@@ -39,15 +39,15 @@ $(function() {
   
   //autocomplete
   $(".auto").autocomplete({
-  	select: function( event, ui ) {
-  		//get something out of UI and use that to redirect
-  		//put it at the end of the
+    select: function( event, ui ) {
+      //get something out of UI and use that to redirect
+      //put it at the end of the
 
 
 //set a breakpoint
-  		//keep it
-  		window.location = "artistpage.php?myvar=" + ui.item.value;
-  	},
+      //keep it
+      window.location = "artistpage.php?myvar=" + ui.item.value;
+    },
     source: "projcontroller.php",
 
     minLength: 1
