@@ -202,7 +202,7 @@ margin-right : 500px ;
 
 
     <div id="myfeed">
-        this is my feed
+        
     </div>
 
 </div>

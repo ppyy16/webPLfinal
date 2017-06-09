@@ -137,3 +137,6 @@ bg2 pic
 
 https://wondercrizel.files.wordpress.com/2015/04/20150412_215019.jpg
 bg3 pic
+
+https://stackoverflow.com/questions/9420567/convert-json-string-to-javascript-array
+this page was written by the gods

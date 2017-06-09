@@ -21,13 +21,13 @@
 //          success: function(response) {
 //             alert(response);
 //             //console.log(response);
-             
+
 //          },
 //         error: function() {
 //             alert("There was an error searching");
 //         }
 //      });
-           
+
 
 // });
 
@@ -40,7 +40,7 @@
 
 $(function() {
 
-  
+
   //autocomplete
   $(".auto").autocomplete({
   	select: function( event, ui ) {
@@ -62,9 +62,9 @@ $(function() {
 
 //favorites link onclick
 $("#favelink").on("click", function(e) {
-   e.preventDefault();
+ e.preventDefault();
    //gets the stagename
-  $someelement = document.getElementById("welcomeheader");
+   $someelement = document.getElementById("welcomeheader");
   //gets the thing inside and converts it to string! so now we have our name!
   $someElementToString = $someelement.innerHTML;
 
@@ -78,28 +78,28 @@ $("#favelink").on("click", function(e) {
 
 
 //setting the data and the identifier
- var data = {
-        addtofave : $someElementToString,
-        useremail: $someElementToString2,
+var data = {
+  addtofave : $someElementToString,
+  useremail: $someElementToString2,
 
 
-      ifave4u: "addtofaveyes"
-    };
+  ifave4u: "addtofaveyes"
+};
 
 //ajax post request with promise handler
-    $.ajax({
-         type: 'POST',
-         url: "projcontroller.php",
-         data: data, 
-         success: function(response) {
-            alert("Artist added to your favorites!");
+$.ajax({
+ type: 'POST',
+ url: "projcontroller.php",
+ data: data, 
+ success: function(response) {
+  alert("Artist added to your favorites!");
             //console.log(response);
-             
-         },
-        error: function() {
+
+          },
+          error: function() {
             alert("There was an error adding your artist to your favorites");
-        }
-     });
+          }
+        });
 
 });
 
@@ -111,44 +111,91 @@ $("#favelink").on("click", function(e) {
 //onclick function for favelist
 
 $("#getartists").on("click", function(e) {
-   e.preventDefault();
+ e.preventDefault();
 
-   //do same for username
-  //loggedinas
-  $someelement2 = document.getElementById("loggedinas");
-  $someElementToString2 = $someelement2.innerHTML;
-  //okay we're getting the email
+   //okay we're getting the email good
+   $someelement2 = document.getElementById("loggedinas");
+   $someElementToString2 = $someelement2.innerHTML;
 
   //now we need to send it to controller
 
-
-
 //setting the data and the identifier
 //sending it out right
- var data = {
-        useremail: $someElementToString2,
+var data = {
+  useremail: $someElementToString2,
 
 
-      favelist: "list"
-    };
+  favelist: "list"
+};
 
 //ajax post request with promise handler
 //not returning the r
-    $.ajax({
-         type: 'POST',
-         url: "projcontroller.php",
-         data: data, 
-         success: function(response) {
-            // alert("did the thing");
-            alert(response[0]);
-             
-         },
+$.ajax({
+ type: 'POST',
+ url: "projcontroller.php",
+ data: data, 
+ success: function(response) {
+
+           //response is an array
+           //we want to get that shit out of that shitty array
+           //magic: it worked
+           var array = JSON.parse(response);
+
+
+
+           
+           array.forEach(function(entry) {
+            $('#myfeed').append(
+              '<ol><li><a href="artistpage.php?myvar=' + entry +'">' + entry + '</a></li></ol>'
+
+              );
+          });
+
+
+
+
+
+
+
+
+
+          // $.each(array, function(id, itm){
+
+
+          //   $('#myfeed').append(
+          //     '<ol><li>' + id +'</li></ol>'
+          //     );
+
+
+
+          // })
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+        },
         error: function() {
-            alert("There was an error adding your artist to your favorites");
+          alert("There was an error adding your artist to your favorites");
         }
-     });
+      });
 
 });
+
+
+
+
+
+
 
 
 
