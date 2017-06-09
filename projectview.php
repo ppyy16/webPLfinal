@@ -4,7 +4,7 @@ require_once('projectmodel.php');
 
 //session checker otherwise dont let them here
 if(!isset($_SESSION['loggedin'])) {
-    header('Location:index5.html');
+	header('Location:index5.html');
 }
 
 
@@ -49,7 +49,7 @@ class projectview {
 	}
 
 	public function autosearch($autosearch){
-				$result = $this->model->autosearch($autosearch);
+		$result = $this->model->autosearch($autosearch);
 
 
 		echo json_encode($result);
@@ -57,16 +57,21 @@ class projectview {
 
 
 
-public function addartisttofaves($addtofave, $useremail){
-				$result = $this->model->addartisttofaves($addtofave, $useremail);
+	public function addartisttofaves($addtofave, $useremail){
+		$result = $this->model->addartisttofaves($addtofave, $useremail);
 
 
 		echo json_encode($result);
 	}
 
 
-	
+///////////////////////////////////
+	public function favelist($useremail){
+		$result = $this->model->favelist($useremail);
 
+
+		echo json_encode($result);
+	}
 
 
 	

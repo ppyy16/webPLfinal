@@ -104,17 +104,3 @@ https://stackoverflow.com/questions/4383914/how-to-get-single-value-from-php-arr
 https://stackoverflow.com/questions/19488364/how-to-properly-use-while-loop-in-pdo-fetchall
 
 https://stackoverflow.com/questions/3771039/what-does-1-mean-at-the-end-of-a-php-print-r-statement
-
-https://stackoverflow.com/questions/13135131/php-getting-variable-from-another-php-file
-
-http://php.net/manual/en/reserved.variables.get.php
-
-https://stackoverflow.com/questions/4744751/how-do-i-redirect-with-javascript
-
-https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById
-
-https://stackoverflow.com/questions/2470089/javascript-getelementbyid-and-convert-it-to-string
-
-https://stackoverflow.com/questions/2091168/disable-link-using-css
-
-https://stackoverflow.com/questions/23092526/how-can-you-remove-hover-from-navbar-brand-with-logo

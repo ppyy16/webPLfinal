@@ -127,12 +127,12 @@ class projectmodel {
  //adds artists to the database
 //@TODO: add check for duplicate artist
     public function addartist($artiststagename, $artistfullname, $artistfulllastnamelabel, $artistbirthday, $artistdesc, $artisttwitter){
-       $prepared = $this->connection->prepare(
+     $prepared = $this->connection->prepare(
         "INSERT INTO artists (stagename, first, last, birthday, description, twitterid) VALUES (:stagename, :first, :last, :birthday, :description, :twitter);"
         );
 
 
-       $prepared->execute(array(
+     $prepared->execute(array(
         ":stagename" => $artiststagename,
         ":first" => $artistfullname,
         ":last" => $artistfulllastnamelabel,
@@ -145,7 +145,7 @@ class projectmodel {
 
 
 
-       if(!$prepared->execute(array(
+     if(!$prepared->execute(array(
         ":stagename" => $artiststagename,
         ":first" => $artistfullname,
         ":last" => $artistfulllastnamelabel,
@@ -227,18 +227,18 @@ public function filloutartist($artiststagename){
         // foreach ($prepared->fetchAll(PDO::FETCH_ASSOC) as $row) { 
         //     echo $stagename = $row['stagename'];
         //     echo $firstname = $row['last'];
-            
+    
 
         // }
 
     while($row = $prepared->fetch(PDO::FETCH_ASSOC)) {
-            $artisttable[] = $row;  
-        }
+        $artisttable[] = $row;  
+    }
 
 
 
 
-       if(!$prepared->execute(array(
+    if(!$prepared->execute(array(
         ":stagename" => $artiststagename
         ))) {
             // FAILING TO EXECTURE THE QUERY
@@ -252,7 +252,7 @@ if($prepared->rowCount() == 0 ) {
 
 //print_r($fullarray);
 if($artisttable == null){
-        throw new Exception("Error adding your artist");
+    throw new Exception("Error adding your artist");
 
 }
 
@@ -270,7 +270,7 @@ public function autosearch($autosearch){
 
 
     try {
-    $stmt = $this->connection->prepare('SELECT stagename FROM artists WHERE stagename LIKE :term');
+        $stmt = $this->connection->prepare('SELECT stagename FROM artists WHERE stagename LIKE :term');
         $stmt->execute(array(':term' => '%' .$autosearch. '%'));
         
         while($row = $stmt->fetch()) {
@@ -279,15 +279,15 @@ public function autosearch($autosearch){
 
 
         if( count($return_arr) == null ){
-$return_arr[] = 'No matches found';
+            $return_arr[] = 'No matches found';
 //$return_arr[] = $autosearch;
-}
+        }
 
     } catch(PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
     }
 
-return $return_arr;
+    return $return_arr;
 }
 
 
@@ -302,7 +302,7 @@ public function addartisttofaves($addtofave, $useremail) {
         );
 
 
-       $prepared->execute(array(
+    $prepared->execute(array(
         ":stagename" => $addtofave,
         ":email" => $useremail
         ));
@@ -310,7 +310,7 @@ public function addartisttofaves($addtofave, $useremail) {
 
 
 
-       if(!$prepared->execute(array(
+    if(!$prepared->execute(array(
         ":stagename" => $addtofave,
         ":email" => $useremail
         ))) {
@@ -332,134 +332,40 @@ return;
 
 
 
+///////////////////////
 
-public function userfavelist($useremail){
-    $artistfound = false;
+public function favelist($useremail){
+    $return_arr = array();
+    $prepared = $this->connection->prepare(
+        "SELECT * FROM userfavorites WHERE email = :email"
+        );
 
-    $prepared = $this->connection->prepare("SELECT * FROM userfavorites WHERE email =:email");
-    $prepared->execute([":email" => $useremail]);
-
-    if(!$prepared->execute([":email" => $useremail])){
-        throw new Exception("FATAL ERROR SEND IN BACKUPS! (query)");
-
+    $prepared->execute(array(':email' => $useremail));
+    foreach ($prepared->fetchAll(PDO::FETCH_ASSOC) as $row) { 
+        $return_arr[] =  $row['stagename'];
     }
 
 
-
-    // $endresult = $prepared->fetchAll();
-    // print_r($endresult);
-
-    while($row = $prepared->fetch(PDO::FETCH_ASSOC)){
-        $artistfound = true;
-
-        //shouldn't be happening
-        echo "Artist Exists!!". "     ";
-        echo $this->stagename = "Stage Name: " . $row['stagename'] . " "; 
+    
+    if(!$prepared->execute([":email" => $useremail])) {
+            // FAILING TO EXECTURE THE QUERY
+        throw new Exception("FATAL ERROR SEND IN BACKUPS! (query fail)");
+    }
+    
+    if($prepared->rowCount() == 0 ) {
+            // no results
+        throw new Exception("Error getting your information");
     }
 
-//what happens if your result doesnt exist
-    if($artistfound == false){
-        echo "Artist not found. Add them to our database";
-    }
-
-
-    return;
-
-
-
-
+    
+    
+    return $return_arr;
 }
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// //view list of fave artists on profile
-// public function userfavelist($useremail)
-
-
-// {
-//     $return_arr = array();
-
-
-
-//     try {
-//     $stmt = $this->connection->prepare("SELECT * FROM userfavorites WHERE email = :email");
-//          $stmt->execute([":email" => $useremail]);
-        
-//          while($row = $stmt->fetch()) {
-//             $return_arr[] =  $row['stagename'];
-//         }
-
-
-// if( count($return_arr) == null ){
-// $return_arr[] = 'No matches found';
-// //$return_arr[] = $autosearch;
-// }
-
-//     } catch(PDOException $e) {
-//         echo 'ERROR: ' . $e->getMessage();
-//     }
-
-// return $return_arr;
-// }
-
-
-//SELECT * FROM userfavorites, artists WHERE userfavorites.stagename = artists.stagename
-
-
-
-
-
-
-// {
-//     $userfaves = array();
-
-//     $prepared = $this->connection->prepare("SELECT * FROM userfavorites WHERE email =:email");
-//     $prepared->execute([":email" => $useremail]);
-
-       
-
-//     while($row = $prepared->fetch()) {
-//             $userfaves[] = $row['stagename']; 
-//         }
-
-
-
-
-//        if(!$prepared->execute(array(
-//         ":email" => $useremail
-//         ))) {
-//             // FAILING TO EXECTURE THE QUERY
-//         throw new Exception("FATAL ERROR SEND IN BACKUPS! (query)");
-// }
-
-// if($prepared->rowCount() == 0 ) {
-//             // no results
-//     throw new Exception("Error grabbing your favorite artists");
-// }
-
-// //print_r($fullarray);
-// if($userfaves == null){
-//         throw new Exception("Error adding your artist");
-
-// }
-
-
-// return $userfaves;
-
-// }
 
 
 

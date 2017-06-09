@@ -101,17 +101,17 @@ if(isset($_POST['isearch4u']) && $_POST['isearch4u'] == 'do it') {
 
 if (isset($_GET['term'])){
 
- 
+   
 
-$autosearch = $_GET['term'];
+    $autosearch = $_GET['term'];
 
 
 
     $model = new projectmodel();
 
-try {
-    $finalsearch = $model->autosearch($autosearch);
-    $view->autosearch($autosearch);
+    try {
+        $finalsearch = $model->autosearch($autosearch);
+        $view->autosearch($autosearch);
 
 
 
@@ -148,36 +148,19 @@ if(isset($_POST['ifave4u']) && $_POST['ifave4u'] == 'addtofaveyes') {
     //header('Location:index5.html');
 }
 
+////////list
 
+if(isset($_POST['favelist']) && $_POST['favelist'] == 'list') {
 
-
-
-
-
-
-
-
-
-
-
-
-
-//fave lister
-//if the post request says i list4 you and the value is let me in then
-if(isset($_POST['ilist4u']) && $_POST['ilist4u'] == 'letmein') {
-//echo "hi";
-    //make a variable called emailextract4 that holds the user email
-
-    $emailextract4 = $_POST['emailextract4'];
-
-    //set up a new model and send it off with the variable you just made
+    
+    $useremail = $_POST['useremail'];
 
     $model = new projectmodel();
 
-    //send model off with variable and catch try it
 
     try {
-        $artistlistdisplayfinal = $model->artistlistdisplay($emailextract4);
+        $favelistadd = $model->favelist($useremail);
+        $view->favelist($useremail);
     } catch(Exception $e) {
         // we want to redirect the user
         //some error message
@@ -185,15 +168,6 @@ if(isset($_POST['ilist4u']) && $_POST['ilist4u'] == 'letmein') {
 } else {
     //header('Location:index5.html');
 }
-
-
-
-
-
-
-
-
-
 
 
 ?>

@@ -112,6 +112,16 @@ padding: 25px;
     
 }
 
+#searchbarcontainer{
+     width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+    
+
+
 
 </style>
 
@@ -130,7 +140,6 @@ padding: 25px;
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="addartist.php">Add Artist</a></li>
-        <li><a href="#">Settings</a></li>
         <li><a id= "loggedinas" href="#"><?php
 //session_start();
    //Read your session (if it is set)
@@ -138,7 +147,7 @@ padding: 25px;
           echo $_SESSION['username'];
       }
       else {
-        echo "Please set your name in settings";
+        echo "Error loading your name";
     }
 
     ?></a></li>
@@ -158,16 +167,25 @@ padding: 25px;
 <body id="linear-gradient" class="PageType">
 
 
-    <form action='' method='post'>
-        <p><label>Artist Search:</label><input type='text' name='country' value='' class='auto'></p>
+<a id="getartists" href="#">Get artists</a>
 
-    </form>
 
 
     <h1 id="welcomeheader">Welcome <?php if (isset($_SESSION['firstname'])){
         echo $_SESSION['firstname'];
     }
     ?>!</h1>
+
+
+
+    
+<div id="searchbarcontainer">
+    <form action='' method='post'>
+        <p><label id="searchlabel">Artist Search:</label><input id="searchbar" type='text' name='country' value='' class='auto'></p>
+
+    </form>
+
+    </div>
     <div id="userimgdiv">
         <img src="sampleuser.jpg" id="userimg" class="img-circle" alt="Cinque Terre" align= "middle">
         <h4><?php
@@ -180,7 +198,7 @@ padding: 25px;
     }
 
     ?></h4>
-    <span class="text-muted">64 Artists</span>
+ <!--    <span class="text-muted">64 Artists</span> -->
 </div>
 
 
@@ -188,19 +206,19 @@ padding: 25px;
 
     <div id="myartists">
 
+        this is my artists
     </div>
 
 
 
     <div id="myfeed">
         this is my feed
-        
     </div>
 
 </div>
 
 
- 
+
 
 
 
@@ -220,12 +238,8 @@ padding: 25px;
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.min.js"></script>    
 
 <script src="javascriptneeds.js"></script>
+<script src="listfavorites.js"></script>
 <!-- my own script -->
-<script type="text/javascript">
 
-
-
-
-</script>
 </body>
 </html>

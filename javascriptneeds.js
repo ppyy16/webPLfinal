@@ -21,7 +21,7 @@ $.ajax({
  success: function(response) {
   alert(response);
             //console.log(response);
-
+            
           },
           error: function() {
             alert("There was an error searching");
@@ -36,18 +36,18 @@ $.ajax({
 
 $(function() {
 
-
+  
   //autocomplete
   $(".auto").autocomplete({
-    select: function( event, ui ) {
-      //get something out of UI and use that to redirect
-      //put it at the end of the
+  	select: function( event, ui ) {
+  		//get something out of UI and use that to redirect
+  		//put it at the end of the
 
 
 //set a breakpoint
-      //keep it
-      window.location = "artistpage.php?myvar=" + ui.item.value;
-    },
+  		//keep it
+  		window.location = "artistpage.php?myvar=" + ui.item.value;
+  	},
     source: "projcontroller.php",
 
     minLength: 1
@@ -57,7 +57,6 @@ $(function() {
 
 
 //favorites link
-
 
 $("#favelink").on("click", function(e) {
  e.preventDefault();
@@ -92,70 +91,61 @@ $.ajax({
  success: function(response) {
   alert("Artist added to your favorites!");
             //console.log(response);
-
+            
           },
           error: function() {
             alert("There was an error adding your artist to your favorites");
           }
         });
 
-
 });
 
 
-//artist fave redo
-$(function(){
-  if($('body').is('.PageType')){
-    //alert("hello"); check
 
-    //now we want to send a post request using the users email as listed
-    //first extract the email
-    $emailextract = document.getElementById("loggedinas");
-    $emailextractfinal = $emailextract.innerHTML;
-    //alert($emailextractfinal);
-    //email successfully extracted
 
-    //now we want to package it up as a post and send it to the controller so the controller can send it to the model.
+
+
+///////////////////////
+
+$("#getartists").on("click", function(e) {
+ e.preventDefault();
+
+   //do same for username
+  //loggedinas
+  $someelement2 = document.getElementById("loggedinas");
+  $someElementToString2 = $someelement2.innerHTML;
+  //okay we're getting the email
+
+  //now we need to send it to controller
+
+
+
+//setting the data and the identifier
+//sending it out right
 var data = {
-  //setting a post variable to be the email
-  emailextract4 : $emailextractfinal,
+  useremail: $someElementToString2,
 
-//and setting the other one so we can use it in the controller
-  ilist4u: "letmein"
+
+  favelist: "list"
 };
 
-//then comes the actual post request which connects to controller
-
+//ajax post request with promise handler
+//not returning the right
 $.ajax({
  type: 'POST',
  url: "projcontroller.php",
  data: data, 
  success: function(response) {
-            alert("list is made!");
-            console.log(response);
-
+            // alert("did the thing");
+            alert(response[0]);
+            
           },
           error: function() {
             alert("There was an error adding your artist to your favorites");
           }
         });
 
-
-
-
-
-
-
-  }
 });
-
-
-
-
-
-
-
-
 
 
 
